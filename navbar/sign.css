@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{  
+    background-image: url(./img/pexels-frans-van-heerden-847371.jpg) ;
+    background-image: no-repeat;
+    height: 100vh;
+}
+header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background-color: white;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #91898922;
+    
+}
+.logo img{
+    width: 100px;
+}
+form{
+    width: 450px;
+    height: 730px;
+    border: 2px solid #4c484822;
+    padding: 10px 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #ffffff2f;
+    margin-top: 20px;
+    
+}
+#exampleInputEmail1{
+    background-color: #322d2d4c;
+    outline: none;
+    color: #ffff;
+}
+#email{
+    background-color: #322d2d4c;
+    outline: none;
+    color: #ffff;
+}
+#snackbar {
+    visibility: hidden; 
+    min-width: 300px;
+    margin-left: 80px;
+    background-color: #524f4f; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 2px;
+    padding: 16px; 
+    position: fixed; 
+    z-index: 1; 
+    bottom: 100px; 
+    left: 40%;
+    border-radius: 5px;
+  }
+  
+  
+  #snackbar.show {
+    visibility: visible; 
+   
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 60px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 90px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+#pass{
+    background-color: #322d2d4c !important;
+    outline: none;
+    color: #ffff;
+}
+#firstName{
+    background-color: #322d2d4c;
+    outline: none;
+    color: #ffff;
+}
+#lastName{
+    background-color: #322d2d4c;
+    outline: none;
+    color: #ffff;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffff;
+}
+.form-control{
+    height: 40px;
+    
+}
+
+.label{
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #746767;
+    font-weight: 600;
+}
+
+::placeholder{
+    color: #fff !important;
+}
+#btn{
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #7c707022;
+    background-color: #322d2d4c;
+    color:#ffff;
+    font-weight: 500;
+}
+#btn i{
+    padding-right: 10px;
+    color: #ffff;
+}
+.label-bottom{
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    
+}
+.label-bottom a{
+    text-decoration: none;
+    margin-left: 5px;
+    color: #fff;
+    font-weight: 500;
+}
+.fa-eye-slash{
+    position: relative;
+    left: 90%;
+    top: -30px;
+    color: #ffff;
+}
+#messager{
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+@media only screen and (max-width:767px){
+    .logo{
+        width: 100vw;
+        background-color: #fff;
+        margin-left: 10rem;
+    }
+    .logo img{
+        margin-right:20rem ; 
+    }
+    form {
+        width: 25rem;
+        height: 50rem;
+    }
+    .label{
+        margin-left: 0.9rem;
+        font-size: 14px;
+    }
+    #btn{
+        width: 22rem;
+    }
+}
+/* .hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: .5;
+   
+  }
+  .hr-text::before{
+    background: black;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 100%;
+    height: 1px;
+  }
+  .hr-text::after{
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: #fffffff3;
+    padding: 0 8px;
+    line-height: 1.5em;
+    color: #ffff;
+    background-color: #818078;
+  } */

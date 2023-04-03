@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css" />
+    <link rel="stylesheet" href="./cart.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./img/Vuong 2.png" alt="" />
+      </div>
+      <div class="navbar">
+        <input type="checkbox" name="openNav" id="openNav" />
+        <label for="openNav" class="openNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="menu">
+          <li><i class="fa-solid fa-house"></i> Home</li>
+
+          <li>
+            Sneakers
+            <label>
+              <input type="checkbox" />
+              <i class="fa-solid fa-angle-right"></i>
+            </label>
+            <ul>
+              <li>Adidas</li>
+              <li>Air Jordan</li>
+              <li>Nike</li>
+              <li>New Balance</li>
+              <li>Reebok</li>
+              <li>Other Brands</li>
+            </ul>
+          </li>
+
+          <li>
+            Shoes
+            <label>
+              <input type="checkbox" />
+              <i class="fa-solid fa-angle-right"></i>
+            </label>
+            <ul>
+              <li>Birkenstock</li>
+              <li>Chanel</li>
+              <li>Clarks</li>
+              <li>Crocs</li>
+              <li>Dr.martens</li>
+              <li>Hermes</li>
+              <li>Gucci</li>
+            </ul>
+          </li>
+          <li>
+            Apparel
+            <label>
+              <input type="checkbox" />
+              <i class="fa-solid fa-angle-right"></i>
+            </label>
+            <ul>
+              <li>BAPE</li>
+              <li>Chrome Hearts</li>
+              <li>Drew House</li>
+              <li>Essentials</li>
+              <li>Fear of God</li>
+              <li>Supreme</li>
+              <li>Off-White</li>
+              <li>Yeezy Apparel</li>
+              <li>KAWS</li>
+            </ul>
+          </li>
+
+          <li>
+            Electronics
+            <label>
+              <input type="checkbox" />
+              <i class="fa-solid fa-angle-right"></i>
+            </label>
+            <ul>
+              <li>Apple</li>
+              <li>AMD</li>
+              <li>Beats</li>
+              <li>Gaming Laptops</li>
+              <li>Logitech</li>
+              <li>Intel</li>
+              <li>Razer</li>
+              <li>Xbox</li>
+              <li>Playstation</li>
+            </ul>
+          </li>
+
+          <li>
+            Trading Cards
+            <label>
+              <input type="checkbox" />
+              <i class="fa-solid fa-angle-right"></i>
+            </label>
+            <ul>
+              <li>Baseball</li>
+              <li>Football</li>
+              <li>Hockey</li>
+              <li>Soccer</li>
+              <li>Pokemon</li>
+              <li>YU-GI-OH!</li>
+              <li>Magic the Gathering</li>
+            </ul>
+          </li>
+        </ul>
+
+       <div class="signin">
+        <div class="option">
+          <a href="./login.html"
+          ><li id="login"><i class="fa-solid fa-user"  ></i> Sign in</li></a  
+          >
+        </div>
+        
+        <div class="option-left"  id="signin1">
+          <a href="./signup.html"
+          ><li><i class="fa-regular fa-user" ></i>Sign up</li></a
+          >
+        </div>
+          <a href="./cart.html" class="icon">
+            <i class="fa-solid fa-cart-shopping "></i>
+            <span id="span1">0</span>
+          </a>
+          <a href="" class="a" id="change"></a>
+          <span id="logOut"></span>
+       </div>
+      </div>
+      </div>
+    </header>
+    <div id="product">
+      <div>
+        <table id="tableProduct" border="1">
+          <!-- <tr>
+            <td>STT</td>
+            <td>Sản Phẩm</td>
+            <td>Số lượng</td>
+            <td>Giá</td>
+        </tr> -->
+        </table>
+        <table id="totalMoney" border="1">
+          <tr>
+            
+            
+            <td class="total"></td>
+            <td id="tongtien"></td>
+          </tr>
+        </table>
+        <div class="pay">
+          <button onclick="pay()" class="thanhtoan">Pay Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <a href="./test.html">Comment</a>
+  </div>
+  <div id="snackbar"> Total Success</div>
+    <script>
+      
+let flag = localStorage.getItem("flag");
+let email = localStorage.getItem("emailInput");
+
+if (flag == 1) {
+  document.getElementById("signin1").innerHTML = `
+  <a type="submit" onclick = loguot() class="log"> Đăng Xuất <i class="fa-solid fa-right-from-bracket"></i></a>
+  `;
+  document.getElementById("login").innerHTML = `
+  Hi, ${email}
+ 
+  `;
+  document.getElementById("span1").style.display = "inline";
+  document.getElementsByClassName("fa-cart-shopping")[0].style.display =
+    "inline";
+}
+function renderCount() {
+  let countCart = JSON.parse(localStorage.getItem("countCart"));
+  // if (countCart == null) {
+    // countCart = [];
+  // }
+  document.getElementById("span1").innerHTML = countCart;
+}
+
+renderCount();
+function loguot() {
+  console.log(loguot);
+  localStorage.removeItem("flag");
+  localStorage.removeItem("email");
+  
+  window.location.href = "../navbar/home.html";
+}
+const USD = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      });
+      function renderProduct() {
+        let productsCart = JSON.parse(
+          localStorage.getItem("productsCart")
+        );
+        if (productsCart == null) {
+          productsCart = [];
+        }
+        let result = `
+        <tr class="tr">
+            <td class="td">Number Order</td>
+            <td class="td">Products</td>
+            <td class="td">Image</td>
+            <td class="quantity">Quantity</td>
+            <td class="price">Price</td>
+            <td class="sub">Subtotal</td>
+            <td>Feature</td>
+        </tr>
+        `;
+        let total = 0;
+        let stt = 0;
+        for (let i = 0; i < productsCart.length; i++) {
+          if(productsCart[i].use==email){
+            stt++;
+          let SubTotal = productsCart[i].count * productsCart[i].price;
+          let pricee= USD.format(productsCart[i].price)
+          let sub = USD.format(SubTotal);
+          total += SubTotal;
+          result += `
+            <tr class="tr">
+                <td>${stt}</td>
+                <td>${productsCart[i].name}</td>
+                <td><img src="${
+                  productsCart[i].image
+                }" width = "80px" alt=""></td>
+                <td>
+                    <button class="btnQuantity" onclick="minus(${i})">-</button>
+                    ${productsCart[i].count}
+                    <button class="btnQuantity" onclick="plus(${i})">+</button>
+                <td>${pricee}</td>
+                <td>${sub}</td>
+                <td class="td1"><button class="xoaButton" onclick="deleteButton(${i})">Delete</button></td>
+            </tr>
+            `;
+        }
+        let resultMoney = USD.format(total);
+        document.getElementById("tableProduct").innerHTML = result;
+        document.getElementById("tongtien").innerHTML =  ` Total: ${resultMoney} USD `;
+          }
+         
+      }
+      renderProduct();
+      function plus(id) {
+        let productsCart = JSON.parse(
+          localStorage.getItem("productsCart")
+        );
+        productsCart[id].count++;
+        localStorage.setItem(
+          "productsCart",
+          JSON.stringify(productsCart)
+        );
+        renderProduct();
+      }
+      function minus(index) {
+        let productsCart = JSON.parse(
+          localStorage.getItem("productsCart")
+        );
+        if (productsCart[index].count > 0) {
+          productsCart[index].count--;
+          if (productsCart[index].count === 0) {
+            let confirm1 = confirm("Bạn có muốn xóa sản phẩm này?");
+            if (confirm1) {
+              productsCart.splice(index, 1);
+              localStorage.setItem(
+                "productsCart",
+                JSON.stringify(productsCart)
+              );
+              renderProduct();
+            } else {
+              return;
+            }
+          }
+        }
+        localStorage.setItem(
+          "productsCart",
+          JSON.stringify(productsCart)
+        );
+        renderProduct();
+      }
+      function deleteButton(index) {
+        let productCart = JSON.parse(localStorage.getItem("productsCart"));
+        productCart.splice(index, 1);
+        localStorage.setItem("productsCart", JSON.stringify(productCart));
+        renderProduct();
+     
+      }
+      function pay(){
+       let productCart = JSON.parse(localStorage.getItem("productCart"));
+       const snackbar = document.createElement("div");
+       snackbar.classList.add("snackbar");
+       
+       document.body.appendChild(snackbar);
+       
+       localStorage.setItem("productCart", JSON.stringify(productCart));
+      setTimeout(() => {
+        snackbar.remove();
+      }, 2000);
+      setTimeout(() => {
+        window.location.href = "./cart.html";
+      }, 2000);
+      var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+    window.location.href = "./cart.html";
+  }, 3000);
+      }
+    </script>
+  </body>
+</html>
